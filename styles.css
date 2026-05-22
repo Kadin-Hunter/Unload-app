@@ -1,0 +1,280 @@
+/* ───────────────────────────────────────────────────────────────
+   UNLOAD — design tokens for three variations + base reset
+   Scope: every artboard root has data-variant="A|B|C"
+   ─────────────────────────────────────────────────────────────── */
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Archivo', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+
+/* ───── A · Workwear Neutral ─────────────────────────────────── */
+[data-variant="A"] {
+  --bg: #f1ece1;
+  --bg-deep: #e7e0d0;
+  --surface: #fdfaf2;
+  --surface-2: #f6f1e4;
+  --ink: #16130d;
+  --ink-soft: #2c2820;
+  --muted: #6b6557;
+  --muted-2: #948c7a;
+  --line: #16130d;
+  --line-soft: rgba(22,19,13,0.18);
+  --line-w: 1.5px;
+  --line-w-strong: 2px;
+  --accent: #1f5840;
+  --accent-fg: #f1ece1;
+  --accent-soft: #e5ebd6;
+  --warn: #b8442a;
+  --price: #1f5840;
+  --ok: #1f5840;
+  --shadow: 0 1px 0 var(--line);
+  --display: 'Archivo', sans-serif;
+  --display-weight: 900;
+  --display-tracking: -0.025em;
+  --display-line: 0.92;
+  --body: 'Archivo', sans-serif;
+  --label: 'Archivo Narrow', 'Archivo', sans-serif;
+  --label-weight: 700;
+  --mono: 'JetBrains Mono', monospace;
+  --radius: 0px;
+  --radius-soft: 2px;
+}
+
+/* ───── B · Dark Utility ────────────────────────────────────── */
+[data-variant="B"] {
+  --bg: #161310;
+  --bg-deep: #0d0b09;
+  --surface: #221d18;
+  --surface-2: #2c2620;
+  --ink: #f0ebe0;
+  --ink-soft: #d4ccbb;
+  --muted: #8a8273;
+  --muted-2: #5f594d;
+  --line: #3a322a;
+  --line-soft: rgba(255,237,209,0.10);
+  --line-w: 1.5px;
+  --line-w-strong: 2px;
+  --accent: #ff5b1f;
+  --accent-fg: #161310;
+  --accent-soft: #2f1d12;
+  --warn: #ffb01f;
+  --price: #ff7b3f;
+  --ok: #4ec47a;
+  --shadow: 0 1px 0 var(--line);
+  --display: 'Archivo', sans-serif;
+  --display-weight: 900;
+  --display-tracking: -0.025em;
+  --display-line: 0.92;
+  --body: 'Archivo', sans-serif;
+  --label: 'Archivo Narrow', 'Archivo', sans-serif;
+  --label-weight: 700;
+  --mono: 'JetBrains Mono', monospace;
+  --radius: 0px;
+  --radius-soft: 2px;
+}
+
+/* ───── C · Newsprint Bold ──────────────────────────────────── */
+[data-variant="C"] {
+  --bg: #f4eee0;
+  --bg-deep: #ebe3cf;
+  --surface: #fffdf6;
+  --surface-2: #f4eee0;
+  --ink: #0a0a0a;
+  --ink-soft: #1a1a1a;
+  --muted: #4a4538;
+  --muted-2: #7a7464;
+  --line: #0a0a0a;
+  --line-soft: rgba(10,10,10,0.18);
+  --line-w: 2.5px;
+  --line-w-strong: 3.5px;
+  --accent: #e6342a;
+  --accent-fg: #fffdf6;
+  --accent-soft: #fde0dc;
+  --warn: #e6342a;
+  --price: #0a0a0a;
+  --ok: #1c4ba8;
+  --shadow: 4px 4px 0 var(--line);
+  --display: 'Anton', 'Archivo', sans-serif;
+  --display-weight: 400;
+  --display-tracking: 0;
+  --display-line: 0.88;
+  --body: 'Archivo', sans-serif;
+  --label: 'Archivo Narrow', 'Archivo', sans-serif;
+  --label-weight: 700;
+  --mono: 'JetBrains Mono', monospace;
+  --radius: 0px;
+  --radius-soft: 0px;
+}
+
+/* ───── base artboard surface ───────────────────────────────── */
+.app {
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.4;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ───── shared atoms ────────────────────────────────────────── */
+.h-display {
+  font-family: var(--display);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  line-height: var(--display-line);
+  text-transform: uppercase;
+}
+.label {
+  font-family: var(--label);
+  font-weight: var(--label-weight);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 11px;
+}
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+.hr { height: var(--line-w); background: var(--line); border: 0; }
+.hr-soft { height: 1px; background: var(--line-soft); border: 0; }
+.hr-v { width: var(--line-w); background: var(--line); }
+.hr-v-soft { width: 1px; background: var(--line-soft); }
+
+.box {
+  background: var(--surface);
+  border: var(--line-w) solid var(--line);
+  border-radius: var(--radius);
+}
+.box-soft {
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+}
+
+.btn {
+  font-family: var(--label);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 13px;
+  padding: 12px 16px;
+  background: var(--ink);
+  color: var(--bg);
+  border: var(--line-w) solid var(--ink);
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-accent {
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-color: var(--accent);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+.btn-block { width: 100%; justify-content: center; }
+
+.chip {
+  font-family: var(--label);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 10.5px;
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.chip-fill { background: var(--ink); color: var(--bg); }
+.chip-accent { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+.chip-soft { background: var(--surface-2); border-color: var(--line-soft); }
+
+.dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  display: inline-block;
+}
+
+.status-live { color: var(--accent); }
+.status-draft { color: var(--muted); }
+.status-sold { color: var(--ink); text-decoration: line-through var(--accent); }
+
+/* ───── camera (mobile capture) ─────────────────────────────── */
+.cam {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255,180,90,0.12), transparent 55%),
+    radial-gradient(ellipse at 70% 80%, rgba(0,0,0,0.6), transparent 60%),
+    linear-gradient(180deg, #1a1612 0%, #0a0806 100%);
+}
+.cam-grain {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.18 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* ───── newsprint flourishes ─────────────────────────────────── */
+[data-variant="C"] .newsprint-rule {
+  border-top: 2.5px solid var(--line);
+  border-bottom: 5px double var(--line);
+  padding: 6px 0;
+}
+[data-variant="C"] .news-num {
+  font-family: var(--display);
+  font-size: 64px;
+  line-height: 0.85;
+}
+
+/* ───── scrollbar suppression inside artboards ─────────────── */
+.app *::-webkit-scrollbar { display: none; }
+.app * { scrollbar-width: none; }
+
+/* ───── stamp (variation B) ─────────────────────────────────── */
+[data-variant="B"] .stamp {
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  padding: 4px 8px;
+  font-family: var(--label);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 11px;
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
+/* ───── progress bar ────────────────────────────────────────── */
+.bar {
+  height: 6px;
+  background: var(--line-soft);
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.bar > i {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+[data-variant="C"] .bar { border-width: 2px; height: 10px; }
+
+/* ───── price comp tick chart ───────────────────────────────── */
+.ticks {
+  position: relative;
+  height: 28px;
+  border-bottom: var(--line-w) solid var(--line);
+}
+.ticks .tk { position: absolute; bottom: 0; width: 1.5px; background: var(--muted); }
+.ticks .tk.ours { background: var(--accent); width: 3px; }
+[data-variant="C"] .ticks .tk.ours { background: var(--accent); }
